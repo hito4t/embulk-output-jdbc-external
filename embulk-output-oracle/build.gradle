@@ -1,0 +1,28 @@
+dependencies {
+    compile "org.embulk:embulk-output-jdbc:0.10.1"
+
+    compile "com.github.jnr:jnr-ffi:2.1.7"
+    compile "com.github.jnr:jnr-x86asm:1.0.2"
+    compile "com.github.jnr:jffi:1.2.16"
+    compile "org.ow2.asm:asm-analysis:5.0.4"
+    compile "org.ow2.asm:asm-commons:5.0.4"
+    compile "org.ow2.asm:asm-tree:5.0.4"
+    compile "org.ow2.asm:asm-util:5.0.4"
+    compile "org.ow2.asm:asm:5.0.4"
+
+    testCompile "com.google.guava:guava:18.0"
+    testCompile "org.embulk:embulk-formatter-csv:0.10.36"
+    testCompile "org.embulk:embulk-input-file:0.10.36"
+    testCompile "org.embulk:embulk-output-file:0.10.36"
+    testCompile "org.embulk:embulk-parser-csv:0.10.36"
+
+    testCompile files('test_jdbc_driver/ojdbc7.jar')
+}
+
+/* TODO: /lib/embulk/native/x86_64-linux/libembulk-output-oracle-oci.so */
+
+embulkPlugin {
+    mainClass = "org.embulk.output.OracleOutputPlugin"
+    category = "output"
+    type = "oracle"
+}
