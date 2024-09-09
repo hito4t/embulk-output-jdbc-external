@@ -441,7 +441,7 @@ public class BasicTest
 
         ConfigSource config = embulk.newConfig();
         config.set("type", "oracle");
-        config.set("url", "jdbc:oracle:thin:@" + host + ":" + port + ":" + database);
+        config.set("url", "jdbc:oracle:thin:@" + host + ":" + port + "/" + database);
         config.set("user", user);
         config.set("password", password);
 

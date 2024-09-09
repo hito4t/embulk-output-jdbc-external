@@ -115,7 +115,7 @@ public class OracleOutputPlugin
         if (oracleTask.getUrl().isPresent()) {
             url = oracleTask.getUrl().get();
         } else {
-            url = String.format("jdbc:oracle:thin:@%s:%d:%s",
+            url = String.format("jdbc:oracle:thin:@%s:%d/%s",
                     oracleTask.getHost().get(), oracleTask.getPort(), oracleTask.getDatabase().get());
         }
 
