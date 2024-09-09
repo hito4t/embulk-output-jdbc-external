@@ -45,6 +45,7 @@ public class OracleTests
 
         ProcessBuilder pb = new ProcessBuilder(
                 "sql",
+                "-thin",
                 user + "/" + password + "@" + host + ":" + port + "/" + database,
                 "@" + sqlFile.toFile().getAbsolutePath());
         pb.environment().put("JAVA_TOOL_OPTIONS", "-Dfile.encoding=UTF8");
