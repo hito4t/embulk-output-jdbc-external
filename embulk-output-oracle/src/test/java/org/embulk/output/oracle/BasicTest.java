@@ -36,7 +36,7 @@ import com.google.common.io.Resources;
 
 public class BasicTest
 {
-    private static final String BASIC_RESOURCE_PATH = "org/embulk/output/oracle/test/expect/basic/";
+    private static final String BASIC_RESOURCE_PATH = "/org/embulk/output/oracle/test/expect/basic/";
 
     private static ConfigSource loadYamlResource(TestingEmbulk embulk, String fileName)
     {
@@ -453,13 +453,13 @@ public class BasicTest
 
     private Path toPath(String fileName) throws URISyntaxException
     {
-        URL url = Resources.getResource(BASIC_RESOURCE_PATH + fileName);
+        URL url = EmbulkTests.class.getResource(BASIC_RESOURCE_PATH + fileName);
         return FileSystems.getDefault().getPath(new File(url.toURI()).getAbsolutePath());
     }
 
     private Path getEmptyDir() throws URISyntaxException
     {
-        URL url = Resources.getResource(BASIC_RESOURCE_PATH + "test1.csv");
+        URL url = EmbulkTests.class.getResource(BASIC_RESOURCE_PATH + "test1.csv");
         File dir = new File(new File(url.toURI()).getParentFile(), "empty.csv");
         dir.mkdir();
         Path path = FileSystems.getDefault().getPath(dir.getAbsolutePath());
